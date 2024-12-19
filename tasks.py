@@ -1,101 +1,82 @@
 from crewai import Task
+from crewai.tasks import TaskOutput
+from crewai.tasks.conditional_task import ConditionalTask
 
 from agents import (
     user_interaction_agent,
     assessment_agent,
     resource_recommendation_agent,
     monitoring_agent,
-    crisis_management_agent
+    crisis_management_agent,
 )
+
+
+def is_crisis_detected(output: TaskOutput) -> bool:
+    if output is None:
+        return False
+    crisis_keywords = [
+        "suicide", "kill myself", "want to die",
+        "self-harm", "hurt myself", "can't go on",
+        "feeling hopeless", "no way out",
+    ]
+    input_text = output.pydantic.user_input.lower()
+    return any(keyword in input_text for keyword in crisis_keywords)
+
+
+def requires_resource_recommendation(output: TaskOutput) -> bool:
+    if output is None:
+        return False
+    resource_trigger_keywords = [
+        "stress", "anxiety", "depressed", "struggling",
+        "need help", "overwhelmed", "mental health", "coping", "support",
+    ]
+    input_text = output.pydantic.user_input.lower()
+    return any(keyword in input_text for keyword in resource_trigger_keywords)
+
 
 user_interaction_task = Task(
-    description=(
-        "Receive {user_input} from the user about their mental health concerns. "
-        "Determine if the input requires immediate crisis intervention. "
-        "If a crisis is identified, pass the {user_input} to the crisis management agent."
-        "If not a crisis, send input to assessment_agent for evaluation."
-        "Then if the assessment agent gives OK to respond,without getting recommendations from resource "
-        "recommendation agent, reply to the user accordingly."
-        "If user just ask about the progress report, request the progress report from the monitoring agent."
-    ),
+    description="Receive and analyze user input: '{user_input}' to determine its nature and recommend a pathway.",
     expected_output=(
-        "A determination of whether the {user_input} requires "
-        "crisis management or can proceed to assessment. "
+        "Categorization of input: "
+        "1. Input type (neutral/stressful/critical) "
+        "2. Recommended routing strategy "
+        "3. Initial contextual understanding"
     ),
     agent=user_interaction_agent,
-    async_execution=False
+    async_execution=False,
 )
 
-assessment_task = Task(
-    description=(
-        "Analyze the {user_input} from the user_interaction_task. "
-        "Evaluate the user's emotional state, identify potential mental health conditions, "
-        "and categorize the severity of their issues. "
-        "Determine if therapy recommendations are needed."
-        "If therapy recommendations are not needed send OK to reply to the user by user interaction agent by himself."
-        "Assessment reports always passed to the monitoring agent."
-    ),
-    expected_output=(
-        "A detailed mental health assessment report for the {user_input}, including: "
-        "1. Identified symptoms "
-        "2. Possible conditions "
-        "3. Severity levels "
-        "4. Recommendation status (OK/Not OK for direct user response)"
-    ),
+assessment_task = ConditionalTask(
+    description="Assess the user's emotional state based on input: '{user_input}'.",
+    expected_output="Detailed assessment report.",
     context=[user_interaction_task],
     agent=assessment_agent,
-    async_execution=False
+    condition=lambda output: not is_crisis_detected(output),
+    async_execution=False,
 )
 
-resource_recommendation_task = Task(
-    description=(
-        "Based on the assessment report, develop personalized "
-        "resources and coping strategies for the user."
-        "list should be passed to the user interaction agent."
-    ),
-    expected_output=(
-        "A comprehensive list of: "
-        "1. Tailored mental health resources "
-        "2. Actionable coping strategies "
-        "3. Specific recommendations for the user's condition"
-    ),
-    context=[assessment_task],
+resource_recommendation_task = ConditionalTask(
+    description="Provide resources tailored to the user input: '{user_input}' and assessment results.",
+    expected_output="Personalized resources and coping strategies.",
+    context=[user_interaction_task, assessment_task],
     agent=resource_recommendation_agent,
-    async_execution=False
+    condition=requires_resource_recommendation,
+    async_execution=False,
 )
 
 monitoring_task = Task(
-    description=(
-        "Monitor the user's interactions and track their progress over time. "
-        "Evaluate if their mental health state is improving based on assessment_report, "
-        "and schedule follow-ups as necessary."
-        "Do not pass the progress report to the user interaction agent unless it is asked by the user."
-    ),
-    expected_output=(
-        "A progress report detailing: "
-        "1. User's mental health journey "
-        "2. Observed trends "
-        "3. Recommended follow-up schedule"
-    ),
-    context=[user_interaction_task, assessment_task],
+    description="Log the interaction summary: '' for progress tracking.",
+    expected_output="Logged interaction details.",
     agent=monitoring_agent,
-    async_execution=True
+    async_execution=True,
 )
 
-crisis_management_task = Task(
-    description=(
-        "Immediately respond to high-risk situations where the user "
-        "exhibits signs of a crisis in the {user_input}, such as suicidal thoughts or extreme anxiety."
-        "crisis intervention steps and the report should be passed to the user interaction agent."
-    ),
-    expected_output=(
-        "An incident report including: "
-        "1. Crisis intervention steps "
-        "2. Current status of the user "
-        "3. Emergency resource referrals "
-        "4. Recommended immediate support message"
-    ),
+crisis_management_task = ConditionalTask(
+    description="Provide crisis intervention for critical input: '{user_input}'.",
+    expected_output="Crisis intervention response.",
     context=[user_interaction_task],
     agent=crisis_management_agent,
-    async_execution=False
+    condition=is_crisis_detected,
+    async_execution=False,
 )
+

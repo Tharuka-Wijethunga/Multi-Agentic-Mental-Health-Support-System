@@ -4,24 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="008b48ab-ba7a-49cc-924d-13f84bc1eec0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/Mental Health Support System.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agents.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crew.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/a782537d-dbeb-4add-aa80-606bcc5596e1/data_level0.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/a782537d-dbeb-4add-aa80-606bcc5596e1/header.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/a782537d-dbeb-4add-aa80-606bcc5596e1/length.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/a782537d-dbeb-4add-aa80-606bcc5596e1/link_lists.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/chroma.sqlite3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tasks.py" afterDir="false" />
+    <list default="true" id="008b48ab-ba7a-49cc-924d-13f84bc1eec0" name="Changes" comment="Add unversioned files">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agents.py" beforeDir="false" afterPath="$PROJECT_DIR$/agents.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crew.py" beforeDir="false" afterPath="$PROJECT_DIR$/crew.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/a782537d-dbeb-4add-aa80-606bcc5596e1/length.bin" beforeDir="false" afterPath="$PROJECT_DIR$/db/a782537d-dbeb-4add-aa80-606bcc5596e1/length.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/chroma.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db/chroma.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,22 +39,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Python.crew.executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.crew.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Mental Health Support System" />
@@ -112,8 +102,28 @@
       <option name="presentableId" value="Default" />
       <updated>1733678696846</updated>
       <workItem from="1733678697261" duration="8680000" />
-      <workItem from="1733688357895" duration="5836000" />
+      <workItem from="1733688357895" duration="17710000" />
+      <workItem from="1733720524159" duration="9419000" />
+      <workItem from="1734462925092" duration="5428000" />
+      <workItem from="1734474256223" duration="366000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial commit.&#10;Required output is not coming, all the agents give outputs.&#10;Streamlit is still not working.">
+      <option name="closed" value="true" />
+      <created>1733694537204</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1733694537204</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add unversioned files">
+      <option name="closed" value="true" />
+      <created>1733694557709</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1733694557709</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,9 +134,13 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Initial commit.&#10;Required output is not coming, all the agents give outputs.&#10;Streamlit is still not working." />
+    <MESSAGE value="Add unversioned files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add unversioned files" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Mental_Health_Support_System$crew.coverage" NAME="crew Coverage Results" MODIFIED="1733693775741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Mental_Health_Support_System$main.coverage" NAME="main Coverage Results" MODIFIED="1733694358012" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Mental_Health_Support_System$crew.coverage" NAME="crew Coverage Results" MODIFIED="1733731908694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/main_py$crew.coverage" NAME="crew Coverage Results" MODIFIED="1734474515647" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Mental_Health_Support_System$main.coverage" NAME="main Coverage Results" MODIFIED="1733705875414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
